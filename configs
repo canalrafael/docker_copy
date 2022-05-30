@@ -1,0 +1,27 @@
+{
+    "domain": "tutorial",
+    "username": "tutorial",
+    "password": "tuto20182",
+    "serv": "dev",
+    "urls":{
+        "get": "https://<serv>.lisha.ufsc.br/api/get.php",
+        "put": "https://<serv>.lisha.ufsc.br/api/put.php",
+        "mv_put": "https://<serv>.lisha.ufsc.br/api/mv_put.php",
+        "create": "https://<serv>.lisha.ufsc.br/api/create.php",
+        "search": "https://<serv>.lisha.ufsc.br/api/search.php",
+        "finish": "https://<serv>.lisha.ufsc.br/api/finish.php"
+    },
+    "mv": "True",
+    "version": 1.2,
+    "type": "TTH",
+    "wf": 0,
+    "error": 0,
+    "trust": 0,
+    "r": 0,
+    "x": 0,
+    "y": 0,
+    "z": 0,
+    "experiment_path": "./file.json",
+    "export_path": "",
+    "export_name": "teste"
+}

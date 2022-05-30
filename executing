@@ -1,0 +1,29 @@
+#CONFIGURE CONFIGS FILE
+->
+
+
+#GENERATE REQUIREMENTS FROM CURRENT FOLDER
+pip install pipreqs
+pipreqs ./
+
+#CONFIGURE CONFIGS BEFORE GENERATING DOCKER IMAGE
+
+#GERENATING DOCKER IMAGE
+sudo docker build -t python-imdb .
+
+#RUNNING DOCKER IMAGE
+#-ti = allow using input in the file
+sudo docker run -ti -d python-imdb
+
+#VIEW DOCKER NAME
+sudo docker ps
+
+#EXECUTING DOCKER IMAGEM
+sudo docker exec -it DOCKER_NAME /bin/bash
+
+-> python3 main_iot_export.py
+-> inform t0 and t1
+-> wait for conclude
+
+#GETTING FILE OUT OF DOCKER
+sudo docker cp bb1c25fd4a53:/export/teste.parquet /home/leonardo/Documents/Dev/IASE/

@@ -1,0 +1,196 @@
+Category,Label,Long Name,DataType,Limits,A2L Unit,A2L Unit Desc.,Unit,Conversion Target Unit,Dev,A2L LongIdentifier,Comment,ID,Problem,Workflow
+Basic,Vsx_eng,Engine status,UBYTE,"(0.0, 48.0)",-,State,0xF8000006,,0,Engine states,,1,,0
+Basic,Vxx_tco,Engine coolant temperature,UWORD,"(-40.0, 200.0)",DegC,,0xE4924964,K,0,Engine coolant temperature,DegC + 273.15 | format(K¹),2,misfire,0
+Basic,Vxx_n,Engine speed,UWORD,"(0.0, 16383.75)",rpm,,0xE4B23924,Hz,0,Engine speed,rpm * 0.016667 | format (Hz),3,misfire+knock,0
+Basic,Vxx_vs,Vehicle speed,UWORD,"(0.0, 655.35)",km/h,,0xE4963924,m/s,0,Vehicle speed,km/h  / 3.6 | format (m1.s-1),4,,0
+Basic,Vxx_gear,Current gear engaged,UBYTE,"(-1.0, 6.0)",wu,State,0xF8000006,,1,Gear engaged ( [-1 0 1 2 3 4 5 6] ),,5,,0
+Basic,Vxx_acel_pdl_rat,Accelerator pedal position,UWORD,"(0.0, 1.25)",ratio,Ratio,0xF8000000,ratio,0,Normalised accelerator pedal position,,6,,0
+Basic,Vsx_brk_pdl,Brake pedal - switches consolidation state,UBYTE,"(1.0, 4.0)",,State,0xF8000006,,2,Brake pedal states,,7,,0
+Basic,Vbx_raw_sens_bgin_clu_cnt,Clutch pedal - minimum travel switch state - wire,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,0,"State of the begin of the clutch pedal (0=pedal released, 1=pedal pressed)",,8,,0
+Basic,Vsx_neut_cnt,Neutral engaged switch for manual gearbox,UBYTE,"(0.0, 2.0)",-,State,0xF8000006,,3,Neutral engaged switch for manual gearbox,,9,,0
+Basic,Vxx_tdc_ctr,Top Dead Center Counter,UBYTE,"(0.0, 3.0)",TDC,Counter,0xF8000006,,4,"TDC counter, indicates which cylinder is active",,10,,0
+Basic,Vbx_igk,Key state,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,1,Ignition key signal,,11,all,0
+Air Control,Vxx_eal,Engine air load,UWORD,"(0.0, 3.99993896484375)",-,?,0xF8000006,,31,Engine air load,,12,,0
+Air Control,Vxx_amp,Atmospheric pressure,UWORD,"(0.0, 20000.0)",hPa,,0xE48EA924,Pa,0,Atmospheric pressure,hPa * 100 | format ( kg⋅m−1⋅s−2),13,,0
+Air Control,Vxx_map,Intake manifold pressure,UWORD,"(0.0, 20000.0)",hPa,,0xE48EA924,Pa,1,Manifold pressure value,hPa * 100 | format ( kg⋅m−1⋅s−2),14,misfire+knock,0
+Air Control,Vxx_tia,Intake air temperature,UWORD,"(-40.0, 200.0)",DegC,,0xE4924964,K,1,Intake air temperature,DegC + 273.15 | format(K¹),15,,0
+Air Control,Vxx_it_psn_sp_reg,Throttle valve position setpoint,UWORD,"(0.0, 100.0)",% Vsens,%,0xF8000001,%,0,Absolute position setpoint provided by the thrust approach strategy.,,16,,0
+Air Control,Vxx_it_psn,Throttle valve position,UWORD,"(0.0, 100.0)",% Vsens,%,0xF8000001,%,1,Throttle position in percent of the sensor supply voltage,,17,,0
+Air Control,Vxx_mat,Intake manifold temperature,UWORD,"(-40.0, 200.0)",DegC,,0xE4924964,K,2,Manifold air temperature,DegC + 273.15 | format(K¹),18,misfire+knock,0
+Air Control,Vtx_iga_ad_stt_cnt[0],State counter value for each RON level,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,5,State counter value for each RON level,,19,,0
+Air Control,Vtx_iga_ad_stt_cnt[1],State counter value for each RON level,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,6,State counter value for each RON level,,20,,0
+Air Control,Vtx_iga_ad_stt_cnt[0],State counter value for each RON level,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,7,State counter value for each RON level,,21,,0
+Air Control,Vtx_iga_ad_stt_cnt[3],State counter value for each RON level,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,8,State counter value for each RON level,,22,,0
+Fuel And Richness Control,Vxx_ti_alco_cor,Final alcohol adaptive,UWORD,"(0.0, 100.0)",%,%,0xF8000001,%,2,Final alcohol adaptive,,23,,0
+Fuel And Richness Control,Vxx_alco_ad_ctr,Current value of the counter of slow alcohol adaptive computing phases,UBYTE,"(0.0, 255.0)",-,Counter,0xF8000006,,9,Current value of the counter of slow alcohol adaptive computing phases,,24,,0
+Fuel And Richness Control,Vxx_inj1_appl_ti1,Injection time - cylinder 1 - 1st injection,ULONG,"(0.0, 500000.0)",ms,,0xE4925924,s,0,"Applied injection time on cylinder 1, first injection.",ns * (10 ** -3) | format (s¹),25,,0
+Fuel And Richness Control,Vxx_inj2_appl_ti1,Injection time - cylinder 2 - 1st injection,ULONG,"(0.0, 500000.0)",ms,,0xE4925924,s,1,"Applied injection time on cylinder 2, first injection.",ns * (10 ** -3) | format (s¹),26,,0
+Fuel And Richness Control,Vxx_inj3_appl_ti1,Injection time - cylinder 3 - 1st injection,ULONG,"(0.0, 500000.0)",ms,,0xE4925924,s,2,"Applied injection time on cylinder 3, first injection.",ns * (10 ** -3) | format (s¹),27,,0
+Fuel And Richness Control,Vxx_inj4_appl_ti1,Injection time - cylinder 4 - 1st injection,ULONG,"(0.0, 500000.0)",ms,,0xE4925924,s,3,"Applied injection time on cylinder 4, first injection.",ns * (10 ** -3) | format (s¹),28,,0
+Fuel And Richness Control,Vxx_rich_mes,Air/Fuel Ratio,UWORD,"(0.0, 1.99996948242188)",-,Ratio,0xF8000000,ratio,1,A/F Ratio,,29,,0
+Fuel And Richness Control,Vsx_rich_stt,Richness regulation status,UBYTE,"(1.0, 32.0)",-,Counter,0xF8000006,,10,Phase of the richness state machine.,,30,,0
+Fuel And Richness Control,Vxx_mv_ti_ad_fac,Richness adaptation factor,UBYTE,"(0.66666667, 1.33072916333333)",[-],?,0xF8000006,,32,Mean adaptation factor on injection time,,31,,0
+Fuel And Richness Control,Vxx_cata_osc,Catalyst Diagnosis Criteria (OSC Level),UWORD,"(0.0, 655.35)",mmol,,0xE492492C,,0,Value of criteria for FAST diag cata (OSC mesure),mmol * (10 ** -3) | format (mol¹),32,,0
+Fuel And Richness Control,Vxx_sens_lbup_v,Catalyst exhaust gas upstream oxygen sensor voltage,UWORD,"(0.0, 25000.0)",mV,,0xE49A9724,V,0,Tension upstream sensor,mV * (10 ** -3) | format (kg.m2.A-1.s-3),33,,0
+Fuel And Richness Control,Vxx_sens_lbdw_v,Catalyst exhaust gas downstream oxygen sensor voltage,UWORD,"(0.0, 25000.0)",mV,,0xE49A9724,V,1,Raw acquisition of the Rear Oxygen Sensor (L/R),mV * (10 ** -3) | format (kg.m2.A-1.s-3),34,,0
+Ignition Advance,Vxx_in_vvtc_angl_sp,Intake camshaft phaser position setpoint,UWORD,"(0.0, 719.98)",DegCRK,,0xE4B24924,,0,Angular position setpoint of the intake VVTC system,DegCRK * 0.0174533 | format(rad¹),35,,0
+Ignition Advance,Vxx_in_vvtc_angl_mes,Intake camshaft phaser position,UWORD,"(0.0, 719.98)",DegCRK,,0xE4B24924,,1,Angular position of the intake VVTC system (for closed loop control),DegCRK * 0.0174533 | format(rad¹),36,,0
+Ignition Advance,Vxx_iga_appl,Ignition advance,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,2,applied ignition advance after knock correction,DegCRK * 0.0174533 | format(rad¹),37,,0
+Engine Torque,Vxx_arb_no_agb_tqe,Engine torque without gearbox request,UWORD,"(-400.0, 1647.96875)",N.m,,0xE49AA924,N.m,0,Torque request without agb request,| format(kg.m2.s-2),38,,0
+Engine Torque,Vxx_esti_tqe,Estimated effective engine torque,UWORD,"(-400.0, 1647.96875)",Nm,,0xE49AA924,N.m,1,Estimated effective engine torque,| format(kg.m2.s-2),39,,0
+Engine Torque,Vxx_lim_driv_tqe_tgt,Effective engine torque target requested by real (pedal) and virtual (ACC/CC/SL) drivers,UWORD,"(-400.0, 1647.96875)",N.m,,0xE49AA924,N.m,2,Effective engine torque target requested by real (pedal) and virtual (ACC/CC/SL) drivers,| format(kg.m2.s-2),40,,0
+Engine Torque,Vxx_lim_driv_tqe_sp,Effective engine torque setpoint requested by real (pedal) and virtual (ACC/CC/SL) drivers,UWORD,"(-400.0, 1647.96875)",N.m,,0xE49AA924,N.m,3,Effective engine torque setpoint requested by real (pedal) and virtual (ACC/CC/SL) drivers,| format(kg.m2.s-2),41,,0
+Engine Torque,Vxx_eng_tql,Engine torque losses,UWORD,"(0.0, 2047.96875)",Nm,,0xE49AA924,N.m,4,Engine torque losses,| format(kg.m2.s-2),42,,0
+Engine Torque,Vxx_tqi_raw,Final indicated torque raw,UWORD,"(0.0, 2047.96875)",Nm,,0xE49AA924,N.m,5,final indicated torque raw,| format(kg.m2.s-2),43,,0
+Engine Torque,Vxx_tqi_tgt,Final indicated torque target,UWORD,"(0.0, 2047.96875)",Nm,,0xE49AA924,N.m,6,Final indicated target torque,| format(kg.m2.s-2),44,,0
+Engine Torque,Vxx_tqi_sp,Final indicated torque setpoint,UWORD,"(0.0, 2047.96875)",Nm,,0xE49AA924,N.m,7,Final indicated torque set point,| format(kg.m2.s-2),45,,0
+Air Conditioning,Vbx_ac_req,Air conditioning request,UBYTE,"(0.0, 1.0)",bool,Bool,0x00000001,,2,Filtered air conditioning compressor activation request,,46,,0
+Air Conditioning,Vbx_wf_ac_clu_ena,Air conditioning state,UBYTE,"(0.0, 1.0)",.,Bool,0x00000001,,3,Wire frame AC compressor clutching order,,47,,0
+Air Conditioning,Vxx_ac_prs,Relative air conditioning pressure,UWORD,"(0.0, 6553.5)",Bar,,0xE48EA924,Pa,2,Relative air conditioning pressure,bar * 100000 | format( kg⋅m−1⋅s−2),48,,0
+Alternator and Battery Management,Vxx_alt_pwm,Alternator load,UBYTE,"(0.0, 100.0)",%,,0xF8000001,%,3,Filtered alternator load,,49,,0
+Alternator and Battery Management,Vxx_vb,Battery voltage,UWORD,"(0.0, 60.0)",V,,0xE49A9724,V,2,Battery voltage,mV * (10 ** -3) | format (kg.m2.A-1.s-3),50,,0
+Alternator and Battery Management,Vxx_alt_pow,Alternator power,UWORD,"(0.0, 655350.0)",W,,0xE49A9924,W,0,Alternator mechanical power,| format ( kg⋅m2⋅s−3),51,,0
+Alternator and Battery Management,Vxx_sb,Battery state of charge,UBYTE,"(69.0, 100.0)",%,%,0xF8000001,%,4,Battery state of charge,,52,,0
+Alternator and Battery Management,Vxx_alt_v_sp,Alternator voltage set-point,UWORD,"(0.0, 60.0)",V,,0xE49A9724,V,3,Alternator voltage setpoint (final value),| format (kg.m2.A-1.s-3),53,,0
+Alternator and Battery Management,Vxx_eem_alt_crt,Filtered alternator rotor current,UBYTE,"(0.0, 12.75)",A,,0xE4924B24,A,0,Filtered alternator rotor current,| format(A¹),54,,0
+Misfire,Vxx_mis_nr_cyl1,Misfire counter - cylinder 1,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,11,Nombre de misfire dï¿½tectms sur le cylindre 1,,55,misfire,0
+Misfire,Vxx_mis_nr_cyl2,Misfire counter - cylinder 2,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,12,Nombre de misfire dï¿½tectms sur le cylindre 2,,56,misfire,0
+Misfire,Vxx_mis_nr_cyl3,Misfire counter - cylinder 3,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,13,Nombre de misfire dï¿½tectms sur le cylindre 3,,57,misfire,0
+Misfire,Vxx_mis_nr_cyl4,Misfire counter - cylinder 4,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,14,Nombre de misfire dï¿½tectms sur le cylindre 4,,58,misfire,0
+Misfire,Sxx_mis_ctr,Misfire counter,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,15,Misfire counter,,59,misfire,0
+Misfire,Vxx_tlz_val,TLZ torque index,SWORD,"(-3276.8, 3276.7)",Nm,,0xE49AA924,N.m,8,TLZ torque index,| format(kg.m2.s-2),60,misfire,0
+Misfire,Vxx_trz_t_toth_0,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,4,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),61,misfire,0
+Misfire,Vxx_trz_t_toth_1,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,5,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),62,misfire,0
+Misfire,Vxx_trz_t_toth_2,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,6,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),63,misfire,0
+Misfire,Vxx_trz_t_toth_3,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,7,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),64,misfire,0
+Misfire,Vxx_trz_t_toth_4,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,8,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),65,misfire,0
+Misfire,Vxx_trz_t_toth_5,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,9,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),66,misfire,0
+Knock Counter,Vxx_knk_ctr_cyl_1,Knock counter detection - cylinder 1,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,16,Knock detection counter on cylinder 1,,67,knock,0
+Knock Counter,Vxx_knk_ctr_cyl_2,Knock counter detection - cylinder 2,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,17,Knock detection counter on cylinder 2,,68,knock,0
+Knock Counter,Vxx_knk_ctr_cyl_3,Knock counter detection - cylinder 3,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,18,Knock detection counter on cylinder 3,,69,knock,0
+Knock Counter,Vxx_knk_ctr_cyl_4,Knock counter detection - cylinder 4,UWORD,"(0.0, 65535.0)",wu,Counter,0xF8000006,,19,Knock detection counter on cylinder 4,,70,knock,0
+Knock Counter,Vxx_mv_knk,Mean knock noise,UBYTE,"(0.0, 255.0)",-,% from 0->255,0xF8000001,%,5,Mean knock noise,,71,,0
+Knock Counter,knks[0],Knock noise signal for cylinder 0 (V),UWORD,"(0.0, 4.99992371)",V,,0xE49A9724,V,4,Knock noise signal for cylinder x,| format (kg.m2.A-1.s-3),72,knock,0
+Knock Counter,knks[1],Knock noise signal for cylinder 1 (V),UWORD,"(0.0, 4.99992371)",V,,0xE49A9724,V,5,Knock noise signal for cylinder x,| format (kg.m2.A-1.s-3),73,knock,0
+Knock Counter,knks[2],Knock noise signal for cylinder 2 (V),UWORD,"(0.0, 4.99992371)",V,,0xE49A9724,V,6,Knock noise signal for cylinder x,| format (kg.m2.A-1.s-3),74,knock,0
+Knock Counter,knks[3],Knock noise signal for cylinder 3 (V),UWORD,"(0.0, 4.99992371)",V,,0xE49A9724,V,7,Knock noise signal for cylinder x,| format (kg.m2.A-1.s-3),75,knock,0
+Knock Counter,Vtd_fil_acq_knk_cyl[0],Instantaneous knock noise for each cylinder,UBYTE,"(0.0, 255.0)",-,% from 0->255,0xF8000001,%,6,Instantaneous knock noise for each cylinder,,76,,0
+Knock Counter,Vtd_fil_acq_knk_cyl[1],Instantaneous knock noise for each cylinder,UBYTE,"(0.0, 255.0)",-,% from 0->255,0xF8000001,%,7,Instantaneous knock noise for each cylinder,,77,,0
+Knock Counter,Vtd_fil_acq_knk_cyl[2],Instantaneous knock noise for each cylinder,UBYTE,"(0.0, 255.0)",-,% from 0->255,0xF8000001,%,8,Instantaneous knock noise for each cylinder,,78,,0
+Knock Counter,Vtd_fil_acq_knk_cyl[3],Instantaneous knock noise for each cylinder,UBYTE,"(0.0, 255.0)",-,% from 0->255,0xF8000001,%,9,Instantaneous knock noise for each cylinder,,79,,0
+Knock Counter,Vxx_knk_tdc_ctr,"TDC counter for knock detection, indicates for which cylinder the knock value is available.",UBYTE,"(0.0, 3.0)",TDC,State,0xF8000006,,30,"TDC counter for knock detection, indicates for which cylinder the knock value is available.",,80,,0
+Extra,Vxx_csm,Fuel consumption,UWORD,"(0.0, 100.0)",l/h,,0xE49E3924,m³/s,0,fuel consumption,l/h * 28 * (10 ** -8) | format (m3.s-1),81,misfire+knock,0
+Extra,Vxx_vh_dist,Total vehicle distance,ULONG,"(0.0, 16777215.0)",km,,0xE4964924,m,0,Total vehicle distance,km * 1000 | format (m¹),82,,0
+Extra,Vtx_ind_dyn[0],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,20,,,83,,0
+Extra,Vtx_ind_dyn[1],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,21,,,84,,0
+Extra,Vtx_ind_dyn[2],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,22,,,85,,0
+Extra,Vtx_ind_dyn[3],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,23,,,86,,0
+Extra,Vtx_ind_dyn[4],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,24,,,87,,0
+Extra,Vtx_ind_dyn[5],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,25,,,88,,0
+Extra,Vtx_ind_dyn[6],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,26,,,89,,0
+Extra,Vtx_ind_dyn[7],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,27,,,90,,0
+Extra,Vtx_ind_dyn[8],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,28,,,91,,0
+Extra,Vtx_ind_dyn[9],Fault Vector,UWORD,"(0.0,1460.0)",,State,0xF8000006,,29,,,92,,0
+Air Control,Vxx_sens_mat,Manifold air temperature (sensor),UWORD,"(-40.0, 200.0)",DegC,,0xE4924964,K,3,Manifold air temperature (sensor),,93,,0
+Air Control,tam,Ambient air temperature,UBYTE,"(-48.0, 142.5)",DegC,,0xE4924964,K,4,Ambient air temperature,,94,,0
+,Vxx_trz_t_toth_6,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,10,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),95,misfire,0
+,Vxx_trz_t_toth_7,Duration of 30° Crank package,ULONG,"(0.0, 52428800.0)",ns,,0xE4925924,s,11,Duration of 30ï¿½ Crk package,ns * (10 ** -3) | format (s¹),96,misfire,0
+,nl_ref[0],Noise level calculation,UWORD,"(0.0,79.998779296875)",V,,0xE49A9724,V,8,Noise Level calculation based on KNKS_REF. Only the BP-filtering and the weighting coefficients are taken into account,,97,,0
+,nl_ref[1],Noise level calculation,UWORD,"(0.0,79.998779296875)",V,,0xE49A9724,V,9,Noise Level calculation based on KNKS_REF. Only the BP-filtering and the weighting coefficients are taken into account,,98,,0
+,nl_ref[2],Noise level calculation,UWORD,"(0.0,79.998779296875)",V,,0xE49A9724,V,10,Noise Level calculation based on KNKS_REF. Only the BP-filtering and the weighting coefficients are taken into account,,99,,0
+,nl_ref[3],Noise level calculation,UWORD,"(0.0,79.998779296875)",V,,0xE49A9724,V,11,Noise Level calculation based on KNKS_REF. Only the BP-filtering and the weighting coefficients are taken into account,,100,,0
+,Vtd_fil_knk_noi_cyl[0],Filtered knock noise,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,30,Filtered knock noise for each cylinder,,101,,0
+,Vtd_fil_knk_noi_cyl[1],Filtered knock noise,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,31,Filtered knock noise for each cylinder,,102,,0
+,Vtd_fil_knk_noi_cyl[2],Filtered knock noise,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,32,Filtered knock noise for each cylinder,,103,,0
+,Vtd_fil_knk_noi_cyl[3],Filtered knock noise,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,33,Filtered knock noise for each cylinder,,104,,0
+,Vxx_map_ref,Command of manifold pressure calculated ,UWORD,"(0.0, 20000.0)",hPa,,0xE48EA924,Pa,3,Command of manifold pressure calculated by the torque structure,,105,,0
+,knks_rng_h[0],High range for KNKS,UWORD,"(0.0, 79.998779296875)",V,,0xE49A9724,V,12,High range for KNKS,,106,,0
+,knks_rng_h[1],High range for KNKS,UWORD,"(0.0, 79.998779296875)",V,,0xE49A9724,V,13,High range for KNKS,,107,,0
+,knks_rng_h[2],High range for KNKS,UWORD,"(0.0, 79.998779296875)",V,,0xE49A9724,V,14,High range for KNKS,,108,,0
+,knks_rng_h[3],High range for KNKS,UWORD,"(0.0, 79.998779296875)",V,,0xE49A9724,V,15,High range for KNKS,,109,,0
+,knks_thd[0],Knock Threshold per cylinder,UBYTE,"(0.0, 4.98046875)",V,,0xE49A9724,V,16,Knock Threshold per cylinder,,110,,0
+,knks_thd[1],Knock Threshold per cylinder,UBYTE,"(0.0, 4.98046875)",V,,0xE49A9724,V,17,Knock Threshold per cylinder,,111,,0
+,knks_thd[2],Knock Threshold per cylinder,UBYTE,"(0.0, 4.98046875)",V,,0xE49A9724,V,18,Knock Threshold per cylinder,,112,,0
+,knks_thd[3],Knock Threshold per cylinder,UBYTE,"(0.0, 4.98046875)",V,,0xE49A9724,V,19,Knock Threshold per cylinder,,113,,0
+,Vtd_knk_det_cyl[0],Knock detection for each cylinder,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,4,Knock detection for each cylinder,,114,,0
+,Vtd_knk_det_cyl[1],Knock detection for each cylinder,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,5,Knock detection for each cylinder,,115,,0
+,Vtd_knk_det_cyl[2],Knock detection for each cylinder,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,6,Knock detection for each cylinder,,116,,0
+,Vtd_knk_det_cyl[3],Knock detection for each cylinder,UBYTE,"(0.0, 1.0)",-,Bool,0x00000001,,7,Knock detection for each cylinder,,117,,0
+,c_teg_dyn_min_diag_lsh_lsl,Minimum exhaust gas temperature threshold ,VALUE,"(-273.15, 1774.7875)",DegC,,0xE4924964,K,5,Minimum exhaust gas temperature threshold to permit SCP to set fault during LSH power rise state,,118,,0
+,knks_cmd_fil_pre[0],Knock Filter Frequency ,UBYTE,"(0.0, 63.0)",-,,0xF8000001,%,10,Knock Filter Frequency and Reference Filter Frequency Cyl.x,,119,,0
+,knks_cmd_fil_pre[1],Knock Filter Frequency ,UBYTE,"(0.0, 63.0)",-,,0xF8000001,%,11,Knock Filter Frequency and Reference Filter Frequency Cyl.x,,120,,0
+,knks_cmd_fil_pre[2],Knock Filter Frequency ,UBYTE,"(0.0, 63.0)",-,,0xF8000001,%,12,Knock Filter Frequency and Reference Filter Frequency Cyl.x,,121,,0
+,knks_cmd_fil_pre[3],Knock Filter Frequency ,UBYTE,"(0.0, 63.0)",-,,0xF8000001,%,13,Knock Filter Frequency and Reference Filter Frequency Cyl.x,,122,,0
+,Vtd_knk_det_cyl_thd[0],Knock detection threshold for each cylinder,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,34,,,123,,0
+,Vtd_knk_det_cyl_thd[1],Knock detection threshold for each cylinder,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,35,,,124,,0
+,Vtd_knk_det_cyl_thd[2],Knock detection threshold for each cylinder,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,36,,,125,,0
+,Vtd_knk_det_cyl_thd[3],Knock detection threshold for each cylinder,UWORD,"(0.0, 255.99609375)",wu,,0xF8000006,,37,,,126,,0
+,knkwd[0],Duration of measurement knock ,UBYTE,"(0.0, 70.125)",DegCRK,,0xE4B24924,,3,Duration of measurement knock window for each cylinder,,127,,0
+,knkwd[1],Duration of measurement knock ,UBYTE,"(0.0, 70.125)",DegCRK,,0xE4B24924,,4,Duration of measurement knock window for each cylinder,,128,,0
+,knkwd[2],Duration of measurement knock ,UBYTE,"(0.0, 70.125)",DegCRK,,0xE4B24924,,5,Duration of measurement knock window for each cylinder,,129,,0
+,knkwd[3],Duration of measurement knock ,UBYTE,"(0.0, 70.125)",DegCRK,,0xE4B24924,,6,Duration of measurement knock window for each cylinder,,130,,0
+,Vxx_sfty_tco,Engine coolant temperature for safety,UBYTE,"(-40.0, 200.0)",DegC,,0xE4924964,K,7,Engine coolant temperature for safety,,131,,0
+,Vbx_blow_temp_cdn,Oil or coolant temperature conditions,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,14,Oil or coolant temperature conditions for the blow-by are satisfied.,,132,,0
+,Vbx_tco_fil_dsb,filtered coolant temperature disable,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,15,filtered coolant temperature disable,,133,,0
+,Vbx_ac_clu_req,Air conditioning compressor,UBYTE,"(0.0, 1.0)",bool,,0x00000001,,16,Air conditioning compressor clutching request sent from AC ECU to USM (M3 architecture),,134,,0
+,Vsx_ac_cmd,Air conditioning compressor command,UBYTE,"(0.0, 4.0)",-,,0x00000001,,17,Air conditioning compressor command,,135,,0
+,Vsx_acr_stt,Air conditioning compressor state for engine control,UBYTE,"(0.0, 3,0)",-,,0x00000001,,18,Air conditioning compressor state for engine control,,136,,0
+,Vsx_sens_tco_vld,Engine coolant temperature sensor validity status,UBYTE,"(0.0, 2,0)",-,State,0xF8000006,,38,Engine coolant temperature sensor validity status,,137,,0
+,Vbx_mis_req,Diagnosis Misfire request ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,19,Diagnosis Misfire request (physical conditions for diagnosis),,139,,0
+,Vxx_ti_fuel_typ_rat,Ratio dedicated to the time injection and stoechiometry adjustment,UWORD,"(0.0, 1.0)",wu,Ratio,0xF8000000,ratio,2,Ratio dedicated to the time injection and stoechiometry adjustment,,140,,0
+,Vbx_df_sens_map_h,Manifold pressure sensor high signal ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,20,Manifold pressure sensor high signal detected failure,,141,,0
+,Vbx_df_sens_map_l,Manifold pressure sensor low signal,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,21,Manifold pressure sensor low signal detected failure,,142,,0
+,Vbx_diag_ena_sens_map_h,Manifold pressure sensor high signal ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,22,Manifold pressure sensor high signal diagnostic information available,,143,,0
+,tco_st,Coolant temperature at start,UBYTE,"(-48.0, 142.5)",DegC,,0xE4924964,K,7,Coolant temperature at start,,144,,0
+,teg_dyn_lsl[0],Exhaust gas temperatures at the linear lambda sensor,UWORD,"(-273.15, 1774.7875)",DegC,,0xE4924964,K,8,Exhaust gas temperatures at the linear lambda sensor,,145,,0
+,Vbx_diag_ena_sens_map_l,Manifold pressure sensor low signal ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,23,Manifold pressure sensor low signal diagnostic information available,,146,,0
+,lv_cdn_diag_tco_el,Boolean for coolant temperature signal ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,24,Boolean for coolant temperature signal range diagnosis conditions,,147,,0
+,Vbx_ac_clu_stt,AC compressor clutch state ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,25,"AC compressor clutch state reinforced with electrical failures (OC, SCG, SCW)",,148,,0
+,tco_mes,Measured coolant temperature,UBYTE,"(-48.0, 142.5)",DegC,,0xE4924964,K,9,Measured coolant temperature,,149,,0
+,Vbx_temp_ref_tco_frz,Boolean indicating validity of frozen engine coolant temperature,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,26,Boolean indicating validity of frozen engine coolant temperature,,150,,0
+,Vbx_temp_ref_tco_sta,Boolean indicating validity of engine coolant temperature ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,27,Boolean indicating validity of engine coolant temperature at engine start,,151,,0
+,Vsx_sta_tco_vld,Engine coolant temperature during engine starting validity status,UBYTE,"(0.0, 2.0)",-,State,0xF8000006,,39,Engine coolant temperature during engine starting validity status,,152,,0
+,Vxx_pump_max_maf,Maximum mass air flow pumped ,UWORD,"(0.0, 3000.0)",kg/h,,0xE4963924,m/s,1,Maximum mass air flow pumped by the engine to protect engine and supercharger,,153,,0
+,Vxx_mv_ti_ad_fac,Mean adaptation factor on injection time,UBYTE,"(0.66666667, 1.33072916333333)",[-],?,0xF8000006,,40,Mean adaptation factor on injection time,,154,,0
+,Vxx_fil_alt_pow,Filtered alternator mechanical power,UWORD,"(0.0, 655350.0)",W,,0xE49A9924,W,1,Filtered alternator mechanical power,,155,,0
+,lv_igk_mu,ignition key MU,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,28,ignition key MU,,156,,0
+,Vsx_inj1_snd_vld,First twin injector validity status,UBYTE,"(0.0, 1.0)",-,State,0xF8000006,,41,First twin injector validity status,,157,,0
+,Vsx_pws_sens_crk_vld,Power supply of crankshaft sensor validity status,UBYTE,"(0.0, 2.0)",-,State,0xF8000006,,42,Power supply of crankshaft sensor validity status,,158,,0
+,dnc_act_crk_edge,Active edge of crankshaft signal,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,29,"Active edge of crankshaft signal,in loaded configuration",,159,,0
+,dnc_crk_sens_typ,Crankshaft sensor technology,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,30,"Crankshaft sensor technology, in loaded configuration",,160,,0
+,dnc_nr_tooth,Number of crankshaft teeth per revolution ,UBYTE,"(0.0, 255.0)",-,,0xF8000001,,31,"Number of crankshaft teeth per revolution (incl. missing teeth in gap position), in loaded configuration",,161,,0
+,dnlc_lih_cam_ex,Exhaust camshaft sensor availability ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,32,"Exhaust camshaft sensor availability for crankshaft limp-home synchronization, in loaded configuration",,162,,0
+,Vbx_sens_igk,Ignition key signal sensor,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,33,Ignition key signal sensor,,163,,0
+,Vbx_mux_ign_pws_vld_ada,Ignition supply confirmation OK from CAN,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,34,Ignition supply confirmation OK from CAN,,164,,0
+,Vsx_fuel_ign_1,Fuel ignition advance state 1.,UBYTE,"(0.0, 3.0)",-,State,0xF8000006,,43,Fuel ignition advance state 1.,,165,,0
+,Vsx_fuel_ign_2,Fuel ignition advance state 2.,UBYTE,"(0.0, 3.0)",-,State,0xF8000006,,44,Fuel ignition advance state 2.,,166,,0
+,Vxx_cylr_iga_mem,Ignition advance memorized,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,8,Ignition advance memorized due to stability during cylinder recognition,,167,,0
+,Vxx_is_wup_nom_iga,Ignition advance in warm-up mode ,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,9,Ignition advance in warm-up mode during idle speed in nominal temperature conditions,,168,,0
+,Vxx_mis_bch_igc_cut_ctr,Ignition cut counter,UBYTE,"(0.0, 255.0)",wu,Counter,0xF8000006,,45,Ignition cut counter,,169,,0
+,Vxx_sta_iga,Start ignition advance,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,10,Start ignition advance,,170,,0
+,Vbx_inj_open,One injector is open.,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,35,One (ore more) injector is open.,,171,,0
+,psn_eng_syn_cam_max_ensd,Maximum engine position during crankshaft synchronization ,SWORD,"(-719.9375, 1439.9375)",DegCRK,,0xE4B24924,,11,Maximum engine position during crankshaft synchronization phase for ENSD,,172,,0
+,psn_eng_syn_cam_min_ensd,Minimum engine position during crankshaft synchronization ,SWORD,"(-719.9375, 1439.9375)",DegCRK,,0xE4B24924,,12,Minimum engine position during crankshaft synchronization phase for ENSD,,173,,0
+,Vsx_inj1_vld,First injector validity status,UBYTE,"(0.0, 4.0)",-,,0x00000001,,36,First injector validity status,,174,,0
+,Vbx_mis_det_intm,Isolated Misfire detected,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,37,Isolated Misfire detected,,175,,0
+,Vxx_mis_tq_fil_mes,Torque gaz filtered at the current TDC,SWORD,"(-3276.8, 3276.7)",Nm,,0xE49AA924,N.m,9,Torque gaz filtered at the current TDC,,176,,0
+,Vxx_mis_tlz_fil_mes,Torque gaz filtered at current tdc,SWORD,"(-3276.8, 3276.7)",Nm,,0xE49AA924,N.m,10,Torque gaz filtered at current tdc,,177,,0
+,Vxx_mis_tq_cor,Value of applied offset correction.,SWORD,"(-3276.8, 3276.7)",Nm,,0xE49AA924,N.m,11,Value of applied offset correction.,,178,,0
+,Vxx_mis_tlz_cor,Value of applied offset correction.,SWORD,"(-3276.8, 3276.7)",Nm,,0xE49AA924,N.m,12,Value of applied offset correction.,,179,,0
+,Vsx_sens_crk_vld,Crankshaft sensor validity status,UBYTE,"(0.0, 2.0)",-,State,0xF8000006,,46,Crankshaft sensor validity status,,180,,0
+,Vbt_inj_cut_req[0],List in ignition order ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,38,List in ignition order of cut request for injector not related to limp home or defaults,,,,0
+,Vbt_inj_cut_req[1],List in ignition order ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,39,List in ignition order of cut request for injector not related to limp home or defaults,,,,0
+,Vbt_inj_cut_req[2],List in ignition order ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,40,List in ignition order of cut request for injector not related to limp home or defaults,,,,0
+,Vbt_inj_cut_req[3],List in ignition order ,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,41,List in ignition order of cut request for injector not related to limp home or defaults,,181,,0
+,Vxx_iga,Final ignition advance calculated ,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,13,Final ignition advance calculated by torque structure,,182,,0
+,Vxx_min_iga,Minimum ignition advance,UBYTE,"(-23.625, 72.0)",DegCRK,,0xE4B24924,,14,Minimum ignition advance,,183,,0
+,Vxx_tqi_maf_eng_sp,Final indicated torque ,UWORD,"(0.0, 2047.96875)",Nm,,0xE49AA924,N.m,13,Final indicated torque for fresh mass air flow control (engine),,184,,0
+,Vxx_lbup_heat_egy,Heating energy of the upstream oxygen sensor,UWORD,"(0.0, 2399.96337890625)",J,,0x849AA924,J,999,Heating energy of the upstream oxygen sensor,,185,,0
+,iplsl_cyl_sel[3],Cylinder individual upstream oxygen sensor ,SWORD,"(-12.005862, 12.005496)",mA,,0xE4924B24,A,1,Cylinder individual upstream oxygen sensor pump current acquisition,,186,,0
+,vp_map,Voltage of the intake manifold pressure sensor,UWORD,"(0.0, 4.99984741210938)",V,,0xE49A9724,V,20,Voltage of the intake manifold pressure sensor,,187,,0
+,vp_map_mv,Mean value Voltage of the intake manifold pressure sensor ,UWORD,"(0.0, 4.99984741210938)",V,,0xE49A9724,V,21,Mean value Voltage of the intake manifold pressure sensor (for diagnosis),,188,,0
+,Vxx_fast_cor_cdn_ctr,Exhaust gas mass counter,UWORD,"(0.0, 655.35)",g,,0x8490C924,kg,0,Exhaust gas mass counter,,190,,0
+,Vxx_lbup_per_mv_max,oxygen sensor failure high threshold,UWORD,"(0.0, 655.35)",s,,0xE4925924,s,12,oxygen sensor failure high threshold,,192,,0
+,Vxx_maf_frh_eng_sp,Fresh mass air flow (engine),UWORD,"(0.0, 3000.0)",kg/h,,0xE4963924,m/s,2,Fresh mass air flow (engine),,193,,0
+,Vbx_df_sens_map_shp,Manifold pressure sensor drift signal failure,UBYTE,"(0.0, 1.0)",-,,0xF8000001,,42,Manifold pressure sensor drift signal failure,,194,,0
+,Vxx_fast_cor_cdn_ctr,Exhaust gas mass counter,UWORD,"(0.0, 655.35)",g,,0x8490C924,kg,1,Exhaust gas mass counter,,,,
